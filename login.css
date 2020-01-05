@@ -1,0 +1,32 @@
+/* 태그명을 바로 가리킬 때 */
+		/*body {
+			background-color: black;
+			color: white;
+		}*/
+		/* class를 만들어 가리킬 때 */
+		/*div.mytitle {
+			color: yellow;
+		}*/
+		#title_area {
+			width : 300px;
+			height: 200px;
+			background-image: url(http://www.forest.go.kr/newkfsweb/cmm/fms/FileDown.do?atchFileId=FILE_000000010008639&fileSn=0);
+			border-radius: 30px;
+			color: white;
+			background-position: center;
+			text-align: center;
+			background-size: cover;
+
+			/* display flex를 쓸 때엔 아래 네 줄이 항상 묶여 다닙니다. */
+	        display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	        justify-content: center;
+
+		}
+
+		#login_area {
+			width: 300px;
+			margin: auto;
+
+		}
