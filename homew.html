@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>기획서</title>
+	<!-- Webpage Title -->
+    <title>Hello, world!</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<!-- JS -->		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+    	.box {
+    		display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	        justify-content: center;
+	        background-color: black;
+	        color: #e5bb2c;
+	        font-family: 'Noto Sans KR', sans-serif;
+
+    	}
+    	.content-imgs {
+    		display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	        justify-content: center;
+    	}
+    	
+    	.product-logo {
+    		max-width: 100px;
+    		padding-bottom: 30px;
+    		padding-top: 30px;
+    	}
+    	.product-img {
+    		max-width: 300px;
+    		padding-bottom: 30px;
+    	}
+    	.order-btn {
+    		display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	        justify-content: center;
+	        padding-bottom: 100px;
+	        padding-top: 30px;
+    	}
+    	.product_ex {
+    		
+    	}
+
+    	.product-name {
+    		font-family: 'Do Hyeon', sans-serif;
+    	}
+
+    	.product-price {
+    		
+    		font-size: 12px;
+    	}
+    	.main-content {
+    		
+    		font-size: 15px;
+    	}
+
+
+    	
+    </style>
+    
+</head>
+<body>
+	<div class="box">
+		<div class="content">
+			<div class="content-imgs">
+				<img class="product-logo" src="https://logos-download.com/wp-content/uploads/2016/09/Star_Wars_logo-1.png">
+				<img class="product-img" src="https://cdnb.artstation.com/p/assets/images/images/017/754/745/large/wanoco-4d-starwars-r2d2-20.jpg?1557229549">
+			</div>
+			<div class="product_ex">
+				<div class="product-name">
+					<h1>R2-D2</h1>
+				</div>
+				<div class="product-price">
+					<p>가격: 2,000원/개</p>
+				</div>
+				<div class="main-content">
+					<p> R2-D2는 《스타 워즈》 속 가상 우주에 등장하는 등장 인물이다.<br>
+					드로이드로, 영화 《스타 워즈》 7편 모두에 등장하는 캐릭터이다.</p>
+				</div>
+			</div>
+			<div class="input-groups">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">주문자 이름</span>
+					</div>
+					<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">수량</label>
+					</div>
+					<select class="custom-select" id="inputGroupSelect01">
+						<option selected>수량</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">주소</span>
+					</div>
+					<input type="text" class="form-control" placeholder="address" aria-label="Useraddress" aria-describedby="basic-addon1">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">전화번호</span>
+					</div>
+					<input type="text" class="form-control" placeholder="number" aria-label="Usernumber" aria-describedby="basic-addon1">
+				</div>
+				<div class="order-btn">
+					<button type="button" class="btn btn-outline-warning">주문하기</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
