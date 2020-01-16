@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
 		<!-- JS -->		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -22,16 +22,21 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <style type="text/css">
+    	.content {
+    		width: 500px;
+    		magin: auto;
+    	}
     	.box {
     		display: flex;
 	        flex-direction: column;
 	        align-items: center;
 	        justify-content: center;
-	        background-color: black;
-	        color: #e5bb2c;
+	        /*background-color: black;*/
+	        
 	        font-family: 'Noto Sans KR', sans-serif;
 
     	}
+
     	.content-imgs {
     		display: flex;
 	        flex-direction: column;
@@ -53,12 +58,12 @@
 	        flex-direction: column;
 	        align-items: center;
 	        justify-content: center;
-	        padding-bottom: 100px;
-	        padding-top: 30px;
+	        padding-bottom: 30px;
+	        padding-top: 10px;
     	}
-    	.product_ex {
-    		
-    	}
+    	/*.product_ex {
+    		color: #e5bb2c;
+    	}*/
 
     	.name-r2d2 {
     		font-family: 'Do Hyeon', sans-serif;
@@ -72,12 +77,85 @@
     	}
     	.main-content {
     		
-    		font-size: 15px;
+    		font-size: 14px;
     	}
+    	.input-group-text {
+    		font-size: 14px;
+    	}
+    	.custom-select {
+    		font-size: 14px;
+    	}
+    	table {
+    		width: 500px;
+    		magin: auto;
+    		font-size: 13px;
+    	}
+    	.ordname1 {
+    		width: 60px;
+    	}
+    	.ordnumber1 {
+			width: 50px;
+    	}
+    	.ordaddress1 {
+    		width: 280px;
+    	}
+    	.ordphone1 {
+    		width: 110px;
+    	}
+		table th {
+			border-top: 2px solid;
+			border-color: #e5bb2c;
+			padding: 20px 10px;
+		}
+		table td {
+			border-top: 2px solid;
+			border-color: #e5bb2c;
+			padding: 20px 10px;
+		}
+
 
 
     	
     </style>
+
+    <script type="text/javascript">
+	    function ordB() {
+	    	let inputName = $("#input-name").val();
+	    	let inputProNum = $("#inputGroupSelect01").val();
+	    	let inputAdd = $("#input-add").val();
+	    	let inputPhoneN = $("#input-phonenum").val();
+	    	if ( inputName == '') {
+	    		alert('이름을 입력해주세요!');
+	    		$("#input-name").focus();
+	    		return
+	    	} else if( inputProNum == '--수량을 선택하세요--' ){
+	    		alert('수량을 선택해주세요!');
+	    		$("#inputGroupSelect01").focus();
+	    		return
+	    	} else if( inputAdd == '' ){
+	    		alert('주소를 입력해주세요!');
+	    		$("#input-add").focus();
+	    		return
+	    	} else if( inputPhoneN == '' ){
+	    		alert('전화번호를 입력해주세요!');
+	    		$("#input-phonenum").focus();
+	    		return
+	    	} 
+	    	alert('주문이 완료되었습니다!');
+
+	    	let input_Add_ta = '<tr>\
+								<td>'+inputName+'</td>\
+								<td>'+inputProNum+'</td>\
+								<td>'+inputAdd+'</td>\
+								<td>'+inputPhoneN+'</td>\
+								</tr>'
+			$('#order-text').append(input_Add_ta);
+
+
+
+	    }
+	    
+    </script>
     
 </head>
 <body>
@@ -105,7 +183,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">주문자 이름</span>
 					</div>
-					<input type="text" class="form-control" placeholder="name" aria-label="Username" aria-describedby="basic-addon1">
+					<input type="text" id="input-name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 
 				<div class="input-group mb-3">
@@ -113,7 +191,7 @@
 						<label class="input-group-text" for="inputGroupSelect01">수량</label>
 					</div>
 					<select class="custom-select" id="inputGroupSelect01">
-						<option selected>0</option>
+						<option selected>--수량을 선택하세요--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -124,18 +202,39 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">주소</span>
 					</div>
-					<input type="text" class="form-control" placeholder="address" aria-label="Useraddress" aria-describedby="basic-addon1">
+					<input type="text" id="input-add" class="form-control"  aria-label="Useraddress" aria-describedby="basic-addon1">
 				</div>
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">전화번호</span>
 					</div>
-					<input type="text" class="form-control" placeholder="phone number" aria-label="Usernumber" aria-describedby="basic-addon1">
+					<input type="text" id="input-phonenum" class="form-control"  aria-label="Usernumber" aria-describedby="basic-addon1">
 				</div>
 				<div class="order-btn">
-					<button type="button" class="btn btn-outline-warning">주문하기</button>
+					<button type="button" onclick="ordB()" class="btn btn-outline-warning">주문하기</button>
 				</div>
+			</div>
+
+			<div>
+				<table>
+					<thead class="thead1">
+						<tr>
+							<th scope="col" class="ordname1">이름</th>
+							<th scope="col" class="ordnumber1">수량</th>
+							<th scope="col" class="ordaddress1">주소</th>
+							<th scope="col" class="ordphone1">전화번호</th>
+						</tr>
+					</thead>
+					<tbody id="order-text">
+						<tr>
+							<td>김츄이</td>
+							<td>2</td>
+							<td>서울특별시 광진구 자양4동 아차산로30길 26</td>
+							<td>010-1234-1234</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 		</div>
