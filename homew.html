@@ -119,6 +119,33 @@
     </style>
 
     <script type="text/javascript">
+    	
+
+	    let target_url = 'http://spartacodingclub.shop/order';
+
+	    $.ajax({
+	    	type: "GET",
+	    	url: target_url,
+	    	data: {},
+	    	success: function(response){
+	    		let order_data = response['orders'];
+	    		for (let i = 0; i < order_data.length; i++){
+	    			let name = order_data[i]['name'];
+	    			let count = order_data[i]['count'];
+	    			let address = order_data[i]['address'];
+	    			let phone = order_data[i]['phone'];
+
+	    			let temp_html = '<tr>\
+								<td>'+name+'</td>\
+								<td>'+count+'</td>\
+								<td>'+address+'</td>\
+								<td>'+phone+'</td>\
+								</tr>';
+					$('#order-text').append(temp_html);
+	    		}
+	    	}
+	    })
+
 	    function ordB() {
 	    	let inputName = $("#input-name").val();
 	    	let inputProNum = $("#inputGroupSelect01").val();
@@ -152,6 +179,8 @@
 			$('#order-text').append(input_Add_ta);
 
 	    }
+
+
 	    
     </script>
     

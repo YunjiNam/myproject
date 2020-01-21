@@ -40,6 +40,14 @@
     }
  	</style>
  	<script type="text/javascript">
+ 		$(document).ready(function(){
+		  listing();
+		});
+
+		function listing() {
+			console.log('화면 로딩 후 잘 실행되었습니다');
+		}
+		
  		function toggle_post_box() {
  			if ( $('#posting-box').css('display') == 'block') {
  				$('#posting-box').hide();
@@ -59,6 +67,8 @@
  				
  			}
  		}
+
+
 
  	</script>
 
