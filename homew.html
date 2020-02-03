@@ -125,31 +125,36 @@
 
     <script type="text/javascript">
     	
+		$(document).ready(function(){
+			listing();
+		})
+	    
+	    function listing() {
+	    	let target_url = 'http://spartacodingclub.shop/order';
+	    	$.ajax({
+		    	type: "GET",
+		    	url: target_url,
+		    	data: {},
+		    	success: function(response){
+		    		let order_data = response['orders'];
+		    		for (let i = 0; i < order_data.length; i++){
+		    			let name = order_data[i]['name'];
+		    			let count = order_data[i]['count'];
+		    			let address = order_data[i]['address'];
+		    			let phone = order_data[i]['phone'];
 
-	    let target_url = 'http://spartacodingclub.shop/order';
-
-	    $.ajax({
-	    	type: "GET",
-	    	url: target_url,
-	    	data: {},
-	    	success: function(response){
-	    		let order_data = response['orders'];
-	    		for (let i = 0; i < order_data.length; i++){
-	    			let name = order_data[i]['name'];
-	    			let count = order_data[i]['count'];
-	    			let address = order_data[i]['address'];
-	    			let phone = order_data[i]['phone'];
-
-	    			let temp_html = '<tr>\
-								<td>'+name+'</td>\
-								<td>'+count+'</td>\
-								<td>'+address+'</td>\
-								<td>'+phone+'</td>\
-								</tr>';
-					$('#order-text').append(temp_html);
-	    		}
-	    	}
-	    })
+		    			let temp_html = '<tr>\
+									<td>'+name+'</td>\
+									<td>'+count+'</td>\
+									<td>'+address+'</td>\
+									<td>'+phone+'</td>\
+									</tr>';
+						$('#order-text').append(temp_html);
+		    		}
+		    	}
+		    })
+	    }
+	    
 
 	    function ordB() {
 	    	let inputName = $("#input-name").val();
@@ -160,7 +165,7 @@
 	    		alert('이름을 입력해주세요!');
 	    		$("#input-name").focus();
 	    		return
-	    	} else if( inputProNum == '--수량을 선택하세요--' ){
+	    	} else if( $('#inputGroupSelect01').val() == '' ){
 	    		alert('수량을 선택해주세요!');
 	    		$("#inputGroupSelect01").focus();
 	    		return
@@ -223,7 +228,7 @@
 						<label class="input-group-text" for="inputGroupSelect01">수량</label>
 					</div>
 					<select class="custom-select" id="inputGroupSelect01">
-						<option selected>--수량을 선택하세요--</option>
+						<option selected value="">--수량을 선택하세요--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
